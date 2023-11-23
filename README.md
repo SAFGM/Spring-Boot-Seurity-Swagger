@@ -6,8 +6,15 @@
  
 - [Spring Boot](https://spring.io/projects/spring-boot)
 - [Spring MVC](https://docs.spring.io/spring-framework/reference/web/webmvc.html)
-- [Spring Data JDBC](https://spring.io/projects/spring-data-jdbc)
+- [Spring Data JPA](https://spring.io/projects/spring-data-jpa)
+- [MAVEN](https://maven.apache.org/docs/3.9.5/release-notes.html)
+- [JAVA](https://spring.io/projects/java-version-17)
+- 
 - [H2](https://www.h2database.com)
+
+- Para obter maior proveito das funcionalidades do Swagger recomendo:
+  -   manter a verão 2.6.0 do spring-boot
+  -   manter a versão do swagger em 2.9.2
 
 ## Funcionalidades Implementadas
 - Cadastro de beneficiário junto com seus documentos;
@@ -35,24 +42,30 @@ java -jar ./target/beneficiarios-1.0-SNAPSHOT.jar
 ```
 http://localhost:8080/swagger-ui.html
 
-01 passo: Beneficiario Controller > POST/api/benef Salva Beneficiário
+01 passo: Cadastrar Beneficiário:
+   Endpoint:  Beneficiario Controller > POST/api/benef 
 
-Cadastrar dados do beneficiarios:
-{
-  "dtNascimento": "dd-MM-yyyy",
-   "nome": "Nome do beneficiario"
-}
+   informe JSON  com esses atributos do beneficiarios:
+   {
+     "dtNascimento": "dd-MM-yyyy",
+     "nome": "Nome do beneficiario"
+   }
 
-02 - Passo: Documento Controller > POST/api/doc Salva Documento
-Cadastrar informações dos documentos relacionados ao beneficiario
+02 Passo: Cadastrar informações dos documentos relacionados ao beneficiario
+   Endpoint:  Documento Controller > POST/api/doc
 
-{
-  "beneficiarioId": {
-    "id": 0  // informe o numero do beneficiario cadastrado para associar os documentos
+   informe JSON  com esses atributos:
+   {
+     "beneficiarioId": {
+     "id": 0  // informe o numero do beneficiario cadastrado para associar os documentos
 
-  },
-    "descDocumento": "String", // Descrição do documento
-    "tpDocumento": "String" // Tipo de documento - RG, CPF, CNH, entre outros...
-}
+   },
+      "descDocumento": "String", // Descrição do documento
+      "tpDocumento": "String" // Tipo de documento - RG, CPF, CNH, entre outros...
+   }
+
+03 Passo: 
+   Execute os demais endpoints para listar, atualizar e remover
+    
 ```
 
