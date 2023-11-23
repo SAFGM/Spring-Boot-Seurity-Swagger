@@ -9,7 +9,6 @@
 - [Spring Data JPA](https://spring.io/projects/spring-data-jpa)
 - [MAVEN](https://maven.apache.org/docs/3.9.5/release-notes.html)
 - [JAVA](https://spring.io/projects/java-version-17)
-- 
 - [H2](https://www.h2database.com)
 
 - Para obter maior proveito das funcionalidades do Swagger recomendo:
