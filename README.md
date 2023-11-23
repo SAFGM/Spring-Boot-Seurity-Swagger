@@ -43,29 +43,28 @@ java -jar ./target/beneficiarios-1.0-SNAPSHOT.jar
 http://localhost:8080/swagger-ui.html
 
 01 passo: Cadastrar Beneficiário:
-   Endpoint:  Beneficiario Controller > POST/api/benef 
+  - Endpoint:  Beneficiario Controller > POST/api/benef 
 
-   informe JSON  com esses atributos do beneficiarios:
-   {
-     "dtNascimento": "dd-MM-yyyy",
-     "nome": "Nome do beneficiario"
-   }
+ -  informe JSON  com esses atributos do beneficiarios:
+ -  {
+ -    "dtNascimento": "dd-MM-yyyy",
+ -    "nome": "Nome do beneficiario"
+ -  }
 
 02 Passo: Cadastrar informações dos documentos relacionados ao beneficiario
-   Endpoint:  Documento Controller > POST/api/doc
+ -  Endpoint:  Documento Controller > POST/api/doc
 
-   informe JSON  com esses atributos:
-   {
-     "beneficiarioId": {
-     "id": 0  // informe o numero do beneficiario cadastrado para associar os documentos
-
-   },
-      "descDocumento": "String", // Descrição do documento
-      "tpDocumento": "String" // Tipo de documento - RG, CPF, CNH, entre outros...
-   }
+ -  informe JSON  com esses atributos:
+ -  {
+ -    "beneficiarioId": {
+ -    "id": 0  // informe o numero do beneficiario cadastrado para associar os documentos
+ -  },
+ -     "descDocumento": "String", // Descrição do documento
+ -     "tpDocumento": "String" // Tipo de documento - RG, CPF, CNH, entre outros...
+ -  }
 
 03 Passo: 
-   Execute os demais endpoints para listar, atualizar e remover
+ -  Execute os demais endpoints para listar, atualizar e remover
     
 ```
 
