@@ -9,3 +9,4 @@ public class BeneficiariosApplication {
 		SpringApplication.run(BeneficiariosApplication.class, args);
 	}
 }
+ 

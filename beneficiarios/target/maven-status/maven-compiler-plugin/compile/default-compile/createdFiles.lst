@@ -1,0 +1,14 @@
+com\api\beneficiarios\entity\DocumentoEntity.class
+com\api\beneficiarios\util\PaginacaoUtil.class
+com\api\beneficiarios\controller\api\DocumentoController.class
+com\api\beneficiarios\service\PersistDocumentoService.class
+com\api\beneficiarios\config\ModelMapperConfiguration.class
+com\api\beneficiarios\config\SwaggerConfig.class
+com\api\beneficiarios\service\PersistBeneficiarioService.class
+com\api\beneficiarios\entity\BeneficiarioEntity$BeneficiarioEntityBuilder.class
+com\api\beneficiarios\entity\BeneficiarioEntity.class
+com\api\beneficiarios\BeneficiariosApplication.class
+com\api\beneficiarios\repositories\DocumentoRepository.class
+com\api\beneficiarios\controller\api\BeneficiarioController.class
+com\api\beneficiarios\config\WebConfiguration.class
+com\api\beneficiarios\repositories\BeneficiarioRepository.class

@@ -26,7 +26,6 @@ public class SwaggerConfig {
         return new ApiInfoBuilder()
                 .title("API")
                 .description("Service API")
-//                .termsOfServiceUrl("http://springfox.io")
                 .contact(new Contact("Sávio Costa", "https://github.com/SAFGM", "Saviojfcosta@hotmail.com"))
                 .license("License Version 2.0")
                 .licenseUrl("https://github.com/SAFGM")

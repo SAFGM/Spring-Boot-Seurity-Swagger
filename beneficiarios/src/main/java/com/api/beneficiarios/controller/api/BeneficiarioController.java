@@ -1,5 +1,6 @@
 package com.api.beneficiarios.controller.api;
 
+
 import com.api.beneficiarios.entity.BeneficiarioEntity;
 import com.api.beneficiarios.entity.DocumentoEntity;
 import com.api.beneficiarios.service.PersistBeneficiarioService;
@@ -32,8 +33,9 @@ public class BeneficiarioController {
     @Autowired
     private PersistDocumentoService persistDocumentoService;
 
-    public BeneficiarioController (PersistBeneficiarioService persistBeneficiarioService){
+    public BeneficiarioController (PersistBeneficiarioService persistBeneficiarioService, PersistDocumentoService persistDocumentoService){
         this.persistBeneficiarioService = persistBeneficiarioService;
+        this.persistDocumentoService = persistDocumentoService;
     }
 
     @Autowired
@@ -42,7 +44,7 @@ public class BeneficiarioController {
     @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    @ApiOperation(value = "Salva Beneficiário")
+    @ApiOperation(value = "Cadastrar Beneficiário")
     public BeneficiarioEntity salvar(@RequestBody @Valid BeneficiarioEntity beneficiarioEntity){
         Timestamp dataDeHoje = new Timestamp(System.currentTimeMillis());
         beneficiarioEntity.setDtInclusao(dataDeHoje.toLocalDateTime());
@@ -51,19 +53,12 @@ public class BeneficiarioController {
     @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    @ApiOperation(value = "Lista Beneficiários")
+    @ApiOperation(value = "Listar todos os beneficiários cadastrados")
     public Page<BeneficiarioEntity> listBeneficiarios(@PageableDefault(page = 0, size = 10, sort = "id", direction = Sort.Direction.ASC) Pageable pageable){
         return persistBeneficiarioService.listBeneficiarios(pageable);
     }
 
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
-    @GetMapping(value = "/{id}")
-    @ResponseStatus(HttpStatus.OK)
-    @ApiOperation(value = "Pesquisar Beneficiário")
-    public BeneficiarioEntity pesquisarBeneficiarioPorID(@PathVariable("id") Long id){
-        return  persistBeneficiarioService.pesquisarPorId(id)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Beneficiario não encontrado!"));
-    }
+       
     @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     @DeleteMapping(value = "/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
@@ -85,7 +80,7 @@ public class BeneficiarioController {
     @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     @PutMapping(value = "/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    @ApiOperation(value = "Atualizar Beneficiário")
+    @ApiOperation(value = "Atualizar os dados cadastrais de um beneficiário")
     public void atualizarBeneficiario(@PathVariable("id")   @Valid Long id, @RequestBody BeneficiarioEntity beneficiarioEntity){
         Timestamp dataDeHoje = new Timestamp(System.currentTimeMillis());
         beneficiarioEntity.setDtAtualizacao(dataDeHoje.toLocalDateTime());
